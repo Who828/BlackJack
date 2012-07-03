@@ -1,7 +1,7 @@
 require 'deck.rb'
 
 describe Deck do
-  context "It should initialize 52 cards of Deck." do
+  context "It should initialize 52 cards of Deck" do
     it "should initialize 52 cards" do
       Deck.new.deck.size.should == 52
     end

@@ -19,7 +19,11 @@ attr_reader :cards
       elsif /#{i[0]}/ =~ 'JQK'
         score += 10
       elsif 'A' == i[0]
-        score += 11
+        if score < 11
+          score += 11
+        else
+          score += 1
+        end
       end
     end
     score

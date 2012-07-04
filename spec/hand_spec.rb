@@ -9,7 +9,7 @@ describe Hand do
     end
   end
 
-  context "add a score" do
+  context "add a card" do
     it "should be able to add a card" do
       hand.add_card("1H")
       hand.cards.should include("1H")

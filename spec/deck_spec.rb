@@ -1,12 +1,22 @@
 require 'deck.rb'
 
 describe Deck do
-  context "It should initialize 52 cards of Deck" do
+  let(:deck) { ['A',2,3,4,5,6,7,8,9,10,'J','Q','K'].map { |x| ['D','H','C','S'].map { |y|"#{x}#{y}" }}.flatten }
+
+  context "initialize 52 cards of Deck" do
     it "should initialize 52 cards" do
-      Deck.new.deck.size.should == 52
+      Deck.new.cards.size.should == 52
     end
     it "should have these cards in the deck" do
-      Deck.new.deck.should include("2D","3H","4C")
+      Deck.new.cards.should include("2D","3H","4C")
+    end
+  end
+  context "gives a random card from the deck" do
+    it "should give an random card from the deck" do
+      new_deck = Deck.new
+      card = new_deck.random_card
+      deck.should include(card)
+      new_deck.cards.should_not include(card)
     end
   end
 end

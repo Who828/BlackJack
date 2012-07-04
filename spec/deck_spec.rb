@@ -6,11 +6,11 @@ describe Deck do
 
   context "initialize 52 cards of Deck" do
     it "should initialize 52 cards" do
-      Deck.new.cards.size.should == 52
+      new_deck.cards.size.should == 52
     end
 
     it "should have these cards in the deck" do
-      Deck.new.cards.should include("2D","3H","4C")
+      new_deck.cards.should include("2D","3H","4C")
     end
   end
 

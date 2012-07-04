@@ -1,7 +1,7 @@
 require 'deck.rb'
 
 describe Deck do
-  let(:deck) { ['A',2,3,4,5,6,7,8,9,10,'J','Q','K'].map { |x| ['D','H','C','S'].map { |y|"#{x}#{y}" }}.flatten }
+  let(:deck) { Deck.new.cards }
 
   context "initialize 52 cards of Deck" do
     it "should initialize 52 cards" do
@@ -11,6 +11,7 @@ describe Deck do
       Deck.new.cards.should include("2D","3H","4C")
     end
   end
+
   context "gives a random card from the deck" do
     it "should give an random card from the deck" do
       new_deck = Deck.new

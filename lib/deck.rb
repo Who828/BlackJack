@@ -7,10 +7,13 @@ class Deck
     @cards = rank.map { |x| suit.map { |y| "#{x}#{y}" }}.flatten # Create a rank suit pair representing every card in the deck. "DA", "S10", "H4", etc.
   end
 
+  def eject_card(card)
+    @cards.delete(card)
+  end
+
   def random_card
     random_card = @cards.sample
-    @cards.delete(random_card)
-    random_card
+    eject_card(random_card)
   end
 end
 

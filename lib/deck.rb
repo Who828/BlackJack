@@ -12,11 +12,8 @@ class Deck
   end
 
   def eject_card(card)
-    if count > 0
-      @cards.delete(card)
-    else
-      raise "Exception not yet finalized."
-    end
+    raise "No more cards to delete" if count < 1
+    @cards.delete(card)
   end
 
   def random_card

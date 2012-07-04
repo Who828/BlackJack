@@ -12,6 +12,27 @@ describe Deck do
     end
   end
 
+  context "returns the number of cards remaining in the deck" do
+    it "should return the size of cards as 52 on a new deck" do
+      new_deck = Deck.new
+      new_deck.count.should == 52
+    end
+    it "should return the size of cards as 45 after 7 cards are removed" do
+      new_deck = Deck.new
+      for i in 1..7
+        new_deck.random_card
+      end
+      new_deck.count.should == 45
+    end
+    it "should return the size of cards as 0 after all 52 cards are removed" do
+      new_deck = Deck.new
+      for i in 1..52
+        new_deck.random_card
+      end
+      new_deck.count.should == 0
+    end
+  end
+
   context "takes out a specified card from the deck" do
     it "should take out the specified card from the deck and return it" do
       new_deck = Deck.new

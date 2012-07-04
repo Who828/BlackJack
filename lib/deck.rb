@@ -7,8 +7,16 @@ class Deck
     @cards = rank.map { |x| suit.map { |y| "#{x}#{y}" }}.flatten # Create a rank suit pair representing every card in the deck
   end
 
+  def count
+    @cards.size
+  end
+
   def eject_card(card)
-    @cards.delete(card)
+    if count > 0
+      @cards.delete(card)
+    else
+      raise "Exception not yet finalized."
+    end
   end
 
   def random_card

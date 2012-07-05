@@ -13,4 +13,20 @@ describe Card do
             ranks.should include(card.rank)
         end
     end
+
+    context "calculates the value  based on the rank" do
+      it "calculates value for 2-10 ranks" do
+        Card.new('H',2).value.should == 2
+      end
+
+      it "calculates value for (J)ack, (Q)ueen and (K)ing" do
+        Card.new('H','J').value.should == 10
+        Card.new('H','Q').value.should == 10
+      end
+
+      it "calculates the correct value for (A)ce based on score" do
+        Card.new('H','A',5).value.should == 11
+        Card.new('H','A',12).value.should == 1
+      end
+    end
 end

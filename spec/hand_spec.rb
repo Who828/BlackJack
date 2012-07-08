@@ -1,4 +1,4 @@
-require 'hand.rb'
+require 'hand'
 
 describe Hand do
   let(:hand) { Hand.new }
@@ -8,26 +8,25 @@ describe Hand do
   end
 
   it "adds a card to the hand" do
-    hand.add_card("1H")
-    hand.cards.should include("1H")
+    card = Card.new('H','2')
+    hand.add_card(card)
+    hand.cards.should include(card)
   end
 
   context "calculate score" do
     it "calculates the score on non-ace cards" do
-      hand.add_card("2H")
-      hand.add_card("3H")
-      hand.score.should == 5
+      hand.add_card(Card.new("H","2"))
+      hand.score.should == 2
     end
     it "scores 11 for (A)ce when current score < 11" do
-      hand.add_card("2H")
-      hand.add_card("8S")
-      hand.add_card("AH") # Added Ace
-      hand.score.should == 21
+      hand.add_card(Card.new("H","2"))
+      hand.add_card(Card.new("H","A")) # Added Ace
+      hand.score.should == 13
     end
     it "scores 1 for (A)ce when current score >= 11" do
-      hand.add_card("TH")
-      hand.add_card("TD")
-      hand.add_card("AH") # Added Ace
+      hand.add_card(Card.new("H","10"))
+      hand.add_card(Card.new("D","10"))
+      hand.add_card(Card.new("H","A")) # Added Ace
       hand.score.should == 21
     end
   end

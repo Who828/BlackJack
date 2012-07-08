@@ -25,8 +25,8 @@ describe Card do
       end
 
       it "calculates the correct value for (A)ce based on score" do
-        Card.new('H','A',5).value.should == 11
-        Card.new('H','A',12).value.should == 1
+        Card.new('H','A').value(5).should == 11
+        Card.new('H','A').value(12).should == 1
       end
     end
 end

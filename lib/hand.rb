@@ -13,7 +13,7 @@ attr_reader :cards
 
   def score
     sum = 0
-    cards.each { |card| print sum; sum += card.value(sum) }
+    cards.each { |card| sum += card.value(sum) }
     sum
   end
 end

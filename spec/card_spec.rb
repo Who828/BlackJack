@@ -1,4 +1,4 @@
-require 'card.rb'
+require 'card'
 
 describe Card do
     let(:card)  { Card.new('H', 'A') }
@@ -24,9 +24,8 @@ describe Card do
         Card.new('H','Q').value.should == 10
       end
 
-      it "calculates the correct value for (A)ce based on score" do
-        Card.new('H','A').value(5).should == 11
-        Card.new('H','A').value(12).should == 1
+      it "calculates the value for (A)ce" do
+        Card.new('H','A').value.should == 1
       end
     end
 end

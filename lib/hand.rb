@@ -15,7 +15,7 @@ attr_reader :cards
     sum = 0
     cards.each do |card|
       sum += card.value
-      if card.rank == 'A' and sum < 11
+      if card.rank == 'A' and sum <= 11
         sum += 10 # Add Bonus score '10' for Ace as Ace will score 11.
       end
     end

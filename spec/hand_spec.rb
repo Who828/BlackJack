@@ -20,8 +20,9 @@ describe Hand do
     end
     it "scores 11 for (A)ce when current score < 11" do
       hand.add_card(Card.new("H","2"))
+      hand.add_card(Card.new("H","8"))
       hand.add_card(Card.new("H","A")) # Added Ace
-      hand.score.should == 13
+      hand.score.should == 21
     end
     it "scores 1 for (A)ce when current score >= 11" do
       hand.add_card(Card.new("H","10"))
